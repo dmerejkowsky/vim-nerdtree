@@ -42,7 +42,7 @@ endfunction
 "name: the name of a bookmark or a directory
 function! s:Creator.createPrimary(name)
     let path = self._pathForString(a:name)
-    
+
     "abort if exception was thrown (bookmark/dir doesn't exist)
     if empty(path)
         return
@@ -194,14 +194,11 @@ function! s:Creator._createTreeWin()
 
     if !exists('t:NERDTreeBufName')
         let t:NERDTreeBufName = self._nextBufferName()
-        silent! exec splitLocation . 'vertical ' . splitSize . ' new'
         silent! exec "edit " . t:NERDTreeBufName
     else
-        silent! exec splitLocation . 'vertical ' . splitSize . ' split'
         silent! exec "buffer " . t:NERDTreeBufName
     endif
 
-    setlocal winfixwidth
     call self._setCommonBufOptions()
 endfunction
 
