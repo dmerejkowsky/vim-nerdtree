@@ -232,7 +232,7 @@ function! s:TreeFileNode.makeRoot()
 
     "change dir to the dir of the new root if instructed to
     if g:NERDTreeChDirMode ==# 2
-        exec "cd " . b:NERDTreeRoot.path.str({'format': 'Edit'})
+        exec "tcd " . b:NERDTreeRoot.path.str({'format': 'Edit'})
     endif
 
     silent doautocmd User NERDTreeNewRoot
